@@ -52,3 +52,4 @@ def change_password(request):
 
         args = {'form': form}
         return render(request, 'account/change_password.html', args)
+

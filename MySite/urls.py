@@ -21,5 +21,5 @@ urlpatterns = [
     url(r'^$',views.login_redirect,name='login_redirect'),
     url(r'^admin/', admin.site.urls),
     url(r'^account/',include('account.urls')),
-    url(r'^', include('django.contrib.auth.urls')),
+    url(r'^', include('django.contrib.auth.urls', namespace='account')),
 ]

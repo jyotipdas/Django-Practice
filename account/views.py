@@ -19,11 +19,12 @@ def register(request):
         form = forms.RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(reverse('home'))
+            return redirect(reverse('account:home'))
     else:
         form = forms.RegistrationForm()
-        args = {'form':form}
-        return render(request,'account/reg_form.html',args)
+
+        args = {'form': form}
+        return render(request,'account/reg_form.html', args)
 
 def view_profile(request):
     args={'user':request.user}
@@ -35,7 +36,7 @@ def edit_profile(request):
         form = forms.EditProfileForm(request.POST,instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect(reverse('view_profile'))
+            return redirect(reverse('account:view_profile'))
     else:
         form = forms.EditProfileForm(instance=request.user)
         args={'form':form}
@@ -48,9 +49,9 @@ def change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            return redirect(reverse('view_profile'))
+            return redirect(reverse('account:view_profile'))
         else:
-            return redirect(reverse('change_password'))
+            return redirect(reverse('account:change_password'))
     else:
         form = PasswordChangeForm(user=request.user)
 

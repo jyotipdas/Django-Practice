@@ -1,6 +1,6 @@
 import re
 from django.conf import settings
-from django.urls   import reverse
+from django.urls import reverse
 from django.shortcuts import redirect
 from django.contrib.auth import logout
 

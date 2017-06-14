@@ -26,24 +26,25 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/account"> MySite</a>
+            <a class="navbar-brand" href="{% url 'home' %}"> MySite</a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
               {% if user.is_authenticated %}
                 <ul class="nav navbar-nav">
-                    <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="{% url 'view_profile' %}">Profile</a></li>
                     <li><a href="{% url 'edit_profile' %}">Edit Profile</a></li>
                     <li><a href="{% url 'change_password' %}">Change Password</a></li>
-                    <li><a href="{% url 'reset_password' %}">Reset Password</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/account/logout">Logout</a></li>
                 </ul>
               {% else %}
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'reset_password' %}">Reset Password</a></li>
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/account/login">Login</a></li>
-                    <li class="active"><a href="/account/register">Register </a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
                 </ul>
               {% endif %}
           </div><!--/.nav-collapse -->

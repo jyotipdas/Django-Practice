@@ -1,13 +1,19 @@
 {% extends 'header.html' %}
 {% block head %}
-<title>Profile</title>
+    <title>Profile</title>
 {% endblock%}
 
 {% block body %}
-<p>User: {{user}}</p>
-<p>First Name: {{user.first_name}}</p>
-<p>Last Name: {{user.last_name}}</p>
-<p>Email ID: {{user.email}}</p>
+    <h1>Profile</h1>
+    <p>User: {{user}}</p>
+    <p>First Name: {{user.first_name}}</p>
+    <p>Last Name: {{user.last_name}}</p>
+    <p>Email ID: {{user.email}}</p>
+    <p>Description: {{ user.userprofile.description}}</p>
+    <p>Phone: {{ user.userprofile.phone }}</p>
+    <p>City: {{ user.userprofile.city }}</p>
+    <p>Website: {{ user.userprofile.website }}</p>
+    <img src="{{ user.userprofile.image.url }} " width="240">
 {% endblock %}
 
 
